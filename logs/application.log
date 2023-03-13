@@ -1,0 +1,27 @@
+2023-03-13T12:10:22.146+01:00  INFO 13308 --- [main] com.library.books.BooksApplication       : Starting BooksApplication using Java 17.0.6 with PID 13308 (D:\JB\books\target\classes started by Lemon in D:\JB\books)
+2023-03-13T12:10:22.150+01:00  INFO 13308 --- [main] com.library.books.BooksApplication       : No active profile set, falling back to 1 default profile: "default"
+2023-03-13T12:10:22.536+01:00  INFO 13308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-03-13T12:10:22.574+01:00  INFO 13308 --- [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 32 ms. Found 2 JPA repository interfaces.
+2023-03-13T12:10:22.890+01:00  INFO 13308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port(s): 8080 (http)
+2023-03-13T12:10:22.896+01:00  INFO 13308 --- [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2023-03-13T12:10:22.896+01:00  INFO 13308 --- [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.5]
+2023-03-13T12:10:22.953+01:00  INFO 13308 --- [main] o.a.c.c.C.[.[localhost].[/library]       : Initializing Spring embedded WebApplicationContext
+2023-03-13T12:10:22.953+01:00  INFO 13308 --- [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 770 ms
+2023-03-13T12:10:23.038+01:00  INFO 13308 --- [main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-03-13T12:10:23.067+01:00  INFO 13308 --- [main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.1.7.Final
+2023-03-13T12:10:23.247+01:00  INFO 13308 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2023-03-13T12:10:23.445+01:00  INFO 13308 --- [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@43588265
+2023-03-13T12:10:23.446+01:00  INFO 13308 --- [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2023-03-13T12:10:23.487+01:00  INFO 13308 --- [main] SQL dialect                              : HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+2023-03-13T12:10:23.966+01:00  INFO 13308 --- [main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-03-13T12:10:23.972+01:00  INFO 13308 --- [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-03-13T12:10:24.192+01:00  WARN 13308 --- [main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-03-13T12:10:24.258+01:00 DEBUG 13308 --- [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2023-03-13T12:10:24.308+01:00 DEBUG 13308 --- [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 9 mappings in 'requestMappingHandlerMapping'
+2023-03-13T12:10:24.321+01:00 DEBUG 13308 --- [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2023-03-13T12:10:24.326+01:00 DEBUG 13308 --- [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2023-03-13T12:10:24.391+01:00  INFO 13308 --- [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path '/library'
+2023-03-13T12:10:24.397+01:00  INFO 13308 --- [main] com.library.books.BooksApplication       : Started BooksApplication in 2.55 seconds (process running for 2.946)
+2023-03-13T12:12:31.575+01:00  INFO 13308 --- [SpringApplicationShutdownHook] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-03-13T12:12:31.576+01:00  INFO 13308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-03-13T12:12:31.582+01:00  INFO 13308 --- [SpringApplicationShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
