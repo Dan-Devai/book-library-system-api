@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Add New Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+
+<div th:insert="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-6 offset-md-3">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Add New Book</h3>
+                </div>
+                <div class="card-body">
+                    <form th:action="@{/books/new_book}" method="post">
+                        <div class="form-group">
+                            <label for="title">Title</label>
+                            <input type="text" class="form-control" id="title" name="title" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="isbn">ISBN</label>
+                            <input type="text" class="form-control" id="isbn" name="isbn"
+                                   pattern="^[0-9]{10}([0-9]{3})?$" oninput="validateIsbn(this);" required>
+
+                            <small class="form-text text-danger" id="isbnError" style="display: none;">ISBN must be 10
+                                or 13 digits</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="author">Author</label>
+                            <input type="text" class="form-control" id="author" name="author" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="publicationDate">Publication Date</label>
+                            <input type="date" class="form-control" id="publicationDate" name="publicationDate"
+                                   required>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Add Book</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/bootstrap_libraries :: scripts"></div>
+
+<script>
+    function validateIsbn(input) {
+        const value = input.value;
+        const errorElement = document.getElementById('isbnError');
+        const submitBtn = document.getElementById('submitBtn');
+
+        if (value.length === 10 || value.length === 13) {
+            errorElement.style.display = 'none';
+            submitBtn.disabled = false;
+        } else {
+            errorElement.style.display = 'block';
+            submitBtn.disabled = true;
+        }
+    }
+</script>
+
+</body>
+</html>

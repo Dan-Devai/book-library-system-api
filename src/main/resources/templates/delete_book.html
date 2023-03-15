@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Delete Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="jumbotron">
+                <h1 class="display-4">Book Deleted</h1>
+                <p class="lead">The book with ISBN <span th:text="${deletedIsbn}"></span> has been successfully deleted.</p>
+                <hr class="my-4">
+                <p>You can perform other operations using the navigation menu.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/bootstrap_libraries :: scripts"></div>
+
+</body>
+</html>

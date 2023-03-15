@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Navbar Fragment</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <style>
+        input[type="number"] {
+            appearance: textfield;
+        }
+    </style>
+</head>
+<body>
+<div th:fragment="navbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/home">Home</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+                <li class="nav-item active">
+                    <a class="nav-link" href="/books">All Books</a>
+                </li>
+                <div class="dropdown">
+                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"
+                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Search Book
+                    </button>
+                    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">
+                        <form class="form-inline" th:action="@{/books/search}" method="get">
+                            <div th:replace="fragments/isbn_input :: isbn_input"></div>
+                            <button class="btn btn-link my-2 my-sm-0" type="submit"
+                                    style="color: black; border: 1px solid black;">Search
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <li class="nav-item">
+                    <a class="nav-link" href="/books/new_book">Add New Book</a>
+                </li>
+                <div class="dropdown">
+                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"
+                            id="updateDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        Update Book
+                    </button>
+                    <div class="dropdown-menu p-3" aria-labelledby="updateDropdownMenuButton">
+                        <form class="form-inline" th:action="@{/books/update}" method="get">
+                            <div th:replace="fragments/isbn_input :: isbn_input"></div>
+                            <button class="btn btn-link my-2 my-sm-0" type="submit"
+                                    style="color: black; border: 1px solid black;">Update
+                            </button>
+                        </form>
+                    </div>
+                </div>
+                <div class="dropdown">
+                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"
+                            id="deleteDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
+                            aria-expanded="false">
+                        Delete Book
+                    </button>
+                    <div class="dropdown-menu p-3" aria-labelledby="deleteDropdownMenuButton">
+                        <form class="form-inline" th:action="@{/books/delete}" method="post">
+                            <div th:replace="fragments/isbn_input :: isbn_input"></div>
+                            <button class="btn btn-link my-2 my-sm-0" type="submit"
+                                    style="color: black; border: 1px solid black;">Delete
+                            </button>
+
+                        </form>
+                    </div>
+                </div>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item ml-auto">
+                    <form th:action="@{/logout}" method="post" class="form-inline my-2 my-lg-0">
+                        <button class="btn btn-link text-light my-2 my-sm-0" type="submit">Logout</button>
+                    </form>
+                    <!--                    <a class="nav-link" href="/logout">Logout</a>-->
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>
+
+<!--<!DOCTYPE html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <title>Navbar Fragment</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<!--</head>-->
+<!--<body>-->
+<!--<div th:fragment="navbar">-->
+<!--    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">-->
+<!--        <a class="navbar-brand" href="/home">Home</a>-->
+<!--        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"-->
+<!--                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">-->
+<!--            <span class="navbar-toggler-icon"></span>-->
+<!--        </button>-->
+<!--        <div class="collapse navbar-collapse" id="navbarNav">-->
+<!--            <ul class="navbar-nav">-->
+<!--                <li class="nav-item active">-->
+<!--                    <a class="nav-link" href="/books">All Books</a>-->
+<!--                </li>-->
+<!--                <div class="dropdown">-->
+<!--                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"-->
+<!--                            id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">-->
+<!--                        Search Book-->
+<!--                    </button>-->
+<!--                    <div class="dropdown-menu p-3" aria-labelledby="dropdownMenuButton">-->
+<!--                        <form class="form-inline" th:action="@{/books/search}" method="get">-->
+<!--                            <input class="form-control mr-sm-2" type="search" placeholder="Type ISBN"-->
+<!--                                   aria-label="Search" name="isbn" required>-->
+<!--                            <button class="btn btn-link my-2 my-sm-0" type="submit"-->
+<!--                                    style="color: black; border: 1px solid black;">Search-->
+<!--                            </button>-->
+
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <li class="nav-item">-->
+<!--                    <a class="nav-link" href="/books/new_book">Add New Book</a>-->
+<!--                </li>-->
+<!--                <div class="dropdown">-->
+<!--                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"-->
+<!--                            id="updateDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                            aria-expanded="false">-->
+<!--                        Update Book-->
+<!--                    </button>-->
+<!--                    <div class="dropdown-menu p-3" aria-labelledby="updateDropdownMenuButton">-->
+<!--                        <form class="form-inline" th:action="@{/books/update}" method="get">-->
+<!--                            <input class="form-control mr-sm-2" type="number" placeholder="Type ISBN"-->
+<!--                                   aria-label="Update" name="isbn" required min="0" step="1" pattern="\d{10,13}">-->
+<!--                            <button class="btn btn-link my-2 my-sm-0" type="submit"-->
+<!--                                    style="color: black; border: 1px solid black;">Update-->
+<!--                            </button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="dropdown">-->
+<!--                    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"-->
+<!--                            id="deleteDropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"-->
+<!--                            aria-expanded="false">-->
+<!--                        Delete Book-->
+<!--                    </button>-->
+<!--                    <div class="dropdown-menu p-3" aria-labelledby="deleteDropdownMenuButton">-->
+<!--                        <form class="form-inline" th:action="@{/books/delete}" method="post">-->
+<!--                            <input class="form-control mr-sm-2" type="number" placeholder="Type ISBN"-->
+<!--                                   aria-label="Delete" name="isbn" required min="0" step="1" pattern="\d{10,13}">-->
+<!--                            <button class="btn btn-link my-2 my-sm-0" type="submit"-->
+<!--                                    style="color: black; border: 1px solid black;">Delete-->
+<!--                            </button>-->
+<!--                        </form>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </ul>-->
+<!--            <ul class="navbar-nav ml-auto">-->
+<!--                <li class="nav-item ml-auto">-->
+<!--                    <a class="nav-link" href="/logout">Logout</a>-->
+<!--                </li>-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--</div>-->
+
+<!--<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>-->
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>-->
+<!--<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>-->
+<!--</body>-->
+<!--</html>-->
+
+

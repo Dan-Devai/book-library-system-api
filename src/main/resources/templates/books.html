@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>All Books</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div th:replace="fragments/navbar :: navbar"></div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-12">
+            <h1>All Books</h1>
+
+            <div th:if="${message}" class="alert alert-success mt-3" role="alert">
+                <span th:text="${message}"></span>
+            </div>
+            <div th:if="${errorMessage}" class="alert alert-danger mt-3" role="alert">
+                <span th:text="${errorMessage}"></span>
+            </div>
+
+            <!-- Add this block to display the success message -->
+            <div th:if="${successMessage}" class="alert alert-success" role="alert">
+                <p th:text="${successMessage}"></p>
+            </div>
+            <!-- End of success message block -->
+
+
+            <table class="table table-striped">
+                <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>ISBN</th>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Publication Date</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="book : ${books}">
+                    <td th:text="${book.id}"></td>
+                    <td th:text="${book.isbn}"></td>
+                    <td th:text="${book.title}"></td>
+                    <td th:text="${book.author}"></td>
+                    <td th:text="${book.publicationDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/bootstrap_libraries :: scripts"></div>
+</body>
+</html>
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en" xmlns:th="http://www.thymeleaf.org">-->
+<!--<head>-->
+<!--    <meta charset="UTF-8">-->
+<!--    <title>Books</title>-->
+<!--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">-->
+<!--</head>-->
+<!--<body>-->
+
+<!--<div th:insert="fragments/navbar :: navbar"></div>-->
+
+<!--<div class="container">-->
+<!--    <div class="row mt-5">-->
+<!--        <div class="col-md-8 offset-md-2">-->
+<!--            <h1>Books</h1>-->
+<!--            <table class="table table-striped">-->
+<!--                <thead>-->
+<!--                <tr>-->
+<!--                    <th scope="col">ISBN</th>-->
+<!--                    <th scope="col">Title</th>-->
+<!--                    <th scope="col">Author</th>-->
+<!--                    <th scope="col">Publication Date</th>-->
+<!--                </tr>-->
+<!--                </thead>-->
+<!--                <tbody>-->
+<!--                <tr th:each="book : ${books}">-->
+<!--                    <td th:text="${book.isbn}"></td>-->
+<!--                    <td th:text="${book.title}"></td>-->
+<!--                    <td th:text="${book.author}"></td>-->
+<!--                    <td th:text="${book.publicationDate}"></td>-->
+<!--                </tr>-->
+<!--                </tbody>-->
+<!--            </table>-->
+<!--        </div>-->
+<!--    </div>-->
+<!--</div>-->
+
+<!--<div th:insert="fragments/bootstrap_libraries :: scripts"></div>-->
+
+
+<!--</body>-->
+<!--</html>-->

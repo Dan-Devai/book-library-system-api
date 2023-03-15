@@ -62,17 +62,16 @@ public class UserController {
         HttpSession session = request.getSession();
         session.setAttribute("user", authenticatedUser);
 
-        return "redirect:/books";
+        return "redirect:/home";
     }
 
-    @GetMapping("/logout")
+    @PostMapping("/logout")
     public String logoutUser(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session != null) {
             session.invalidate();
         }
-        return "redirect:/books";
+        return "redirect:/login";
     }
-
 
 }

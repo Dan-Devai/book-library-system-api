@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Search Book</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+</head>
+<body>
+<div th:insert="fragments/navbar :: navbar"></div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <h1 th:text="${book.title}"></h1>
+            <table class="table table-striped">
+                <tbody>
+                <tr>
+                    <th scope="row">ISBN</th>
+                    <td th:text="${book.isbn}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Author</th>
+                    <td th:text="${book.author}"></td>
+                </tr>
+                <tr>
+                    <th scope="row">Publication Date</th>
+                    <td th:text="${book.publicationDate}"></td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<div th:insert="fragments/bootstrap_libraries :: scripts"></div>
+</body>
+</html>

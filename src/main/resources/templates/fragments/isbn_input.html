@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <title>ISBN Input Fragment</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    input[type="number"] {
+      appearance: textfield;
+    }
+  </style>
+</head>
+<body>
+<div th:fragment="isbn_input">
+  <input class="form-control mr-sm-2" type="number" placeholder="Type ISBN" aria-label="Search" name="isbn" required minlength="10" maxlength="13" pattern="[0-9]*" inputmode="numeric">
+</div>
+</body>
+</html>
