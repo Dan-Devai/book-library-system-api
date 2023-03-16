@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Dropdown Fragment</title>
+</head>
+<body>
+<div th:fragment="dropdown(title, action, method, buttonLabel, dropdownId)">
+    <button class="btn btn-link text-light my-2 my-sm-0 dropdown-toggle" type="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
+            th:text="${title}"></button>
+    <div class="dropdown-menu p-3" onclick="event.stopPropagation();">
+        <form class="form-inline" th:action="${action}" th:method="${method}">
+            <div>
+                <input class="form-control mr-sm-2" type="text" placeholder="10 or 13 Digits ISBN"
+                       aria-label="Search" name="isbn" required
+                       pattern="^[0-9]{10}([0-9]{3})?$"
+                       oninput="validateDropdownIsbn(this, '${dropdownId}');">
+                <small class="form-text text-danger" id="dropdownIsbnError_${dropdownId}" style="display: none;">ISBN must be 10 or 13 digits</small>
+            </div>
+            <button class="btn btn-link my-2 my-sm-0" type="submit"
+                    style="color: black; border: 1px solid black;" id="dropdownSubmitBtn_${dropdownId}"
+                    th:text="${buttonLabel}">
+            </button>
+        </form>
+    </div>
+</div>
+
+<script>
+    function validateDropdownIsbn(input, dropdownId) {
+        const value = input.value;
+        const errorElement = document.getElementById(`dropdownIsbnError_${dropdownId}`);
+        const submitBtn = document.getElementById(`dropdownSubmitBtn_${dropdownId}`);
+
+        if (value.length === 10 || value.length === 13) {
+            errorElement.style.display = 'none';
+            submitBtn.disabled = false;
+        } else {
+            errorElement.style.display = 'block';
+            submitBtn.disabled = true;
+        }
+    }
+</script>
+</body>
+</html>
