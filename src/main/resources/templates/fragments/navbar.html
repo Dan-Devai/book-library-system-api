@@ -3,6 +3,7 @@
 <head>
     <title>Navbar Fragment</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="/static/jwt.js"></script>
 </head>
 <body>
 <div th:fragment="navbar">
@@ -26,7 +27,7 @@
             </ul>
             <ul class="navbar-nav ml-auto">
                 <li class="nav-item ml-auto">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="#" id="logout-button">Logout</a>
                 </li>
             </ul>
         </div>
