@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Error</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="../../static/jwt.js"></script>
+    <script src="../../static/navbar.js"></script>
+</head>
+<body>
+
+<div th:replace="~{fragments/navbar :: navbar}"></div>
+
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-md-8 offset-md-2">
+            <div class="jumbotron">
+                <h1 class="display-4">Oops! Something went wrong.</h1>
+                <p th:text="'We apologize, but an error has occurred. Our team has been notified and we will work to fix the problem as soon as possible.'"></p>
+                <hr class="my-4">
+                <p>Please select one of the options from the navigation menu to get started.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div th:insert="fragments/bootstrap_libraries :: scripts"></div>
+</body>
+</html>
