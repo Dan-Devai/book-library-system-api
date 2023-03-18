@@ -5,9 +5,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.access.AccessDeniedHandler;
+
 
 @Configuration
+@EnableWebSecurity
 public class SecurityConfiguration {
 
     @Autowired
@@ -21,12 +25,12 @@ public class SecurityConfiguration {
         http
                 .authorizeHttpRequests(requests -> requests
                         .requestMatchers("/", "/home", "/register", "/login",
-                                "/authenticate", "/static/jwt.js", "/jwt.js").permitAll()
+                                "/authenticate", "/static/jwt.js", "/jwt.js", "/access_denied").permitAll()
                         .requestMatchers("/**").authenticated()
                 )
                 .apply(jwtConfigurer())
                 .and()
-                .csrf().disable(); // Disable CSRF protection, as you're using JWT
+                .csrf().disable(); // Disable CSRF protection off, using JWT
 
         return http.build();
     }

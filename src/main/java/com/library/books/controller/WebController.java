@@ -99,4 +99,10 @@ public class WebController {
         }
     }
 
+    @GetMapping("/access_denied")
+    public String showAccessDeniedPage() {
+        System.out.println("Access_Denied is being executed");
+        return "access_denied";
+    }
+
 }
