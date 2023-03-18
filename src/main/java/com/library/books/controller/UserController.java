@@ -59,8 +59,8 @@ public class UserController {
 
     private void clearJwtToken(HttpServletResponse response) {
         Cookie jwtCookie = new Cookie("jwt", "");
-        jwtCookie.setHttpOnly(true);
-        jwtCookie.setSecure(false); // Set this to true if you're using HTTPS
+        jwtCookie.setHttpOnly(false);
+        jwtCookie.setSecure(false);
         jwtCookie.setPath("/");
         jwtCookie.setMaxAge(0);
         response.addCookie(jwtCookie);
@@ -82,8 +82,8 @@ public class UserController {
 
         // Set JWT token as a cookie
         Cookie jwtCookie = new Cookie("jwt", jwtToken);
-        jwtCookie.setHttpOnly(true);
-        jwtCookie.setSecure(false); // Set this to true if you're using HTTPS
+        jwtCookie.setHttpOnly(false);
+        jwtCookie.setSecure(false);
         jwtCookie.setPath("/");
         response.addCookie(jwtCookie);
 
@@ -95,8 +95,8 @@ public class UserController {
     @PostMapping("/logout")
     public ResponseEntity<?> logout(HttpServletResponse response) {
         Cookie jwtCookie = new Cookie("jwt", "");
-        jwtCookie.setHttpOnly(true);
-        jwtCookie.setSecure(false); // Set this to true if you're using HTTPS
+        jwtCookie.setHttpOnly(false);
+        jwtCookie.setSecure(false);
         jwtCookie.setPath("/");
         jwtCookie.setMaxAge(0);
         response.addCookie(jwtCookie);
