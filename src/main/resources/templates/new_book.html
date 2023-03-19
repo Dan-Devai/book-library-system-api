@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="/static/jwt.js"></script>
     <script src="/static/navbar.js"></script>
+    <script src="/static/book_form.js"></script>
+
 </head>
 <body>
 
@@ -31,6 +33,8 @@
 
                             <small class="form-text text-danger" id="isbnError" style="display: none;">ISBN must be 10
                                 or 13 digits</small>
+                            <small class="form-text text-danger" id="isbnExistsError" style="display: none;">This ISBN already exists.</small>
+
                         </div>
                         <div class="form-group">
                             <label for="author">Author</label>
@@ -38,7 +42,7 @@
                         </div>
                         <div class="form-group">
                             <label for="publicationDate">Publication Date</label>
-                            <input type="date" class="form-control" id="publicationDate" name="publicationDate"
+                            <input type="date" class="form-control" id="publicationDate" name="publicationDate" placeholder="dd/mm/yyyy"
                                    required>
                         </div>
                         <button type="submit" class="btn btn-primary" id="submitBtn" disabled>Add Book</button>
@@ -52,20 +56,7 @@
 <div th:insert="fragments/bootstrap_libraries :: scripts"></div>
 
 <script>
-    function validateIsbn(input) {
-        const value = input.value;
-        const errorElement = document.getElementById('isbnError');
-        const submitBtn = document.getElementById('submitBtn');
-
-        if (value.length === 10 || value.length === 13) {
-            errorElement.style.display = 'none';
-            submitBtn.disabled = false;
-        } else {
-            errorElement.style.display = 'block';
-            submitBtn.disabled = true;
-        }
-    }
+    restrictFutureDates('publicationDate');
 </script>
-
 </body>
 </html>

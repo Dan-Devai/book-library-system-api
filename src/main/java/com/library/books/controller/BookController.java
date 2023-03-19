@@ -81,4 +81,10 @@ public class BookController {
         return new ResponseEntity<>(status);
     }
 
+    @GetMapping("/check_isbn")
+    public ResponseEntity<Boolean> checkIsbnExists(@RequestParam("isbn") long isbn) {
+        Optional<Book> bookData = bookService.getBookByIsbn(isbn);
+        return new ResponseEntity<>(bookData.isPresent(), HttpStatus.OK);
+    }
+
 }

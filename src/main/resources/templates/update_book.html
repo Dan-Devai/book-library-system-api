@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <script src="/static/jwt.js"></script>
     <script src="/static/navbar.js"></script>
+    <script src="/static/book_form.js"></script>
+
 </head>
 <body>
 <div th:replace="fragments/navbar :: navbar"></div>
@@ -34,13 +36,16 @@
                     <input type="date" class="form-control" id="publicationDate" th:field="*{publicationDate}"
                            required/>
                 </div>
-                <button type="submit" class="btn btn-primary">Update Book</button>
+                <button type="submit" class="btn btn-primary" id="submitBtn">Update Book</button>
             </form>
         </div>
     </div>
 </div>
 
 <div th:insert="fragments/bootstrap_libraries :: scripts"></div>
-
+<script>
+    restrictFutureDates('publicationDate');
+    addInputListener('input', 'submitBtn');
+</script>
 </body>
 </html>
