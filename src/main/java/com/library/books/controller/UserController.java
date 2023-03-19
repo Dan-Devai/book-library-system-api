@@ -57,6 +57,12 @@ public class UserController {
         return "login";
     }
 
+    @GetMapping("/emailExists")
+    @ResponseBody
+    public boolean emailExists(@RequestParam("email") String email) {
+        return userService.userExists(email);
+    }
+
     private void clearJwtToken(HttpServletResponse response) {
         Cookie jwtCookie = new Cookie("jwt", "");
         jwtCookie.setHttpOnly(false);

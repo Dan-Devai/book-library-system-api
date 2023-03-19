@@ -24,8 +24,8 @@ public class SecurityConfiguration {
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http
                 .authorizeHttpRequests(requests -> requests
-                        .requestMatchers("/", "/home", "/register", "/login",
-                                "/authenticate", "/static/jwt.js", "/jwt.js", "/access_denied").permitAll()
+                        .requestMatchers("/", "/home", "/register", "/login", "/emailExists",
+                                "/authenticate", "/static/**", "/access_denied").permitAll()
                         .requestMatchers("/**").authenticated()
                 )
                 .apply(jwtConfigurer())
